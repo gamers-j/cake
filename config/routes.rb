@@ -15,10 +15,11 @@ Rails.application.routes.draw do
     resources :products, except: [:destroy]
   end
   
+  scope module: :public do
     root to: "homes#top"
     get 'homes/about'
   
-    resources :delivery_address, only: [:index,:edit,:create,:update,:destroy]
+    resources :delivery_addresses, only: [:index,:edit,:create,:update,:destroy]
 
     get 'orders/complete'
     post 'orders/confirm'
@@ -33,5 +34,6 @@ Rails.application.routes.draw do
     resources :customers, only: [:show,:edit,:update]
 
     resources :products, only: [:index,:show]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
