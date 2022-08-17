@@ -1,52 +1,37 @@
 Rails.application.routes.draw do
+   devise_for :admins,skip: [:registrations, :passwords], controllers: {
+  sessions: "admin/sessions"
+}
+  devise_for :customers,skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
+
   namespace :admin do
-    get 'orders/show'
+    root to: "homes#top"
+    resources :orders, only: [:show,:update]
+    resources :customers, only: [:show,:index,:edit,:update]
+    resources :types, only: [:index,:create,:edit,:update]
+    resources :products, except: [:destroy]
   end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
-  namespace :admin do
-    get 'types/index'
-    get 'types/edit'
-  end
-  namespace :admin do
-    get 'products/index'
-    get 'products/new'
-    get 'products/show'
-    get 'products/edit'
-  end
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'delivery_address/index'
-    get 'delivery_address/edit'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
-    get 'orders/complete'
-  end
-  namespace :public do
-    get 'cart_products/index'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/unsubscribe'
-  end
-  namespace :public do
-    get 'products/index'
-    get 'products/show'
-  end
-  namespace :public do
-    get 'homes/top'
+  
+    root to: "homes#top"
     get 'homes/about'
-  end
-  devise_for :admins
-  devise_for :customers
+  
+    resources :delivery_address, only: [:index,:edit,:create,:update,:destroy]
+
+    get 'orders/complete'
+    post 'orders/confirm'
+    resources :orders, only: [:new,:create,:index,:show]
+    
+    
+    delete 'cart_products/destroy_all'
+    resources :cart_products, only: [:index,:update,:destroy,:create]
+    
+    get 'customers/unsubscribe'
+    patch 'customers/withdraw'
+    resources :customers, only: [:show,:edit,:update]
+
+    resources :products, only: [:index,:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

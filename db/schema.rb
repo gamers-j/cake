@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2022_08_17_060158) do
     t.string "address", null: false
     t.string "postal_code", null: false
     t.string "telephone_namber", null: false
-    t.boolean "is_deleted", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(version: 2022_08_17_060158) do
     t.string "address", null: false
     t.string "postal_code", null: false
     t.string "name", null: false
-    t.integer "payment_method", null: false
+    t.integer "payment_method", default: 0, null: false
     t.integer "postage", null: false
-    t.integer "status", null: false
+    t.integer "status", default: 0, null: false
     t.integer "total_amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2022_08_17_060158) do
     t.integer "product_id", null: false
     t.integer "taxed_price", null: false
     t.integer "quantity", null: false
-    t.integer "making_status", null: false
+    t.integer "making_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2022_08_17_060158) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "nontaxed_price", null: false
-    t.boolean "is_active", null: false
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
