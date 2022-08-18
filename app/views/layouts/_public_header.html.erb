@@ -1,0 +1,55 @@
+<header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <button type="button" class="btn btn-outline-dark">
+        <h1>LOGO</h1>
+      </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          
+        <% if customer_signed_in? %>
+        
+        <button type="button" class="btn btn-outline-dark">
+          <%= link_to customer_registration_path,class: 'nav-link text-dark' do %> マイページ
+        　<% end %>
+        </button>
+        <button type="button" class="btn btn-outline-dark">
+          <%= link_to products_path,class: 'nav-link text-dark' do %> 商品一覧
+        　<% end %>
+        </button>
+        <button type="button" class="btn btn-outline-dark">
+          <%= link_to cart_product_path,class: 'nav-link text-dark' do %> カート
+        　<% end %>
+        </button>
+        <button type="button" class="btn btn-outline-dark">
+          <%= link_to destroy_customer_session_pach, method: :delete,class: 'nav-link text-dark' do %> ログアウト
+          <% end %>
+        </button>
+        
+        <% else %>
+        
+        <button type="button" class="btn btn-outline-dark">
+          <%= link_to homes_about_path,class: 'nav-link text-dark' do %> About
+          <% end %>
+        </button>
+      　<button type="button" class="btn btn-outline-dark">
+      　  <%= link_to products_path,class: 'nav-link text-dark' do %> 商品一覧
+         <% end %>
+        </button>
+        <button type="button" class="btn btn-outline-dark">
+          <%=  link_to new_customer_registration_path,class: 'nav-link text-dark' do %> 新規登録
+          <% end %>
+      　</button>
+        <button type="button" class="btn btn-outline-dark">
+          <%= link_to customer_session_path, class: 'nav-link text-dark' do %> ログイン
+          <% end %>
+        </button>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
