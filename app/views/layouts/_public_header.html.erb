@@ -16,14 +16,17 @@
           <%= link_to customer_registration_path,class: 'nav-link text-dark' do %> マイページ
         　<% end %>
         </button>
+        
         <button type="button" class="btn btn-outline-dark">
           <%= link_to products_path,class: 'nav-link text-dark' do %> 商品一覧
         　<% end %>
         </button>
+        
         <button type="button" class="btn btn-outline-dark">
           <%= link_to cart_product_path,class: 'nav-link text-dark' do %> カート
         　<% end %>
         </button>
+        
         <button type="button" class="btn btn-outline-dark">
           <%= link_to destroy_customer_session_pach, method: :delete,class: 'nav-link text-dark' do %> ログアウト
           <% end %>
@@ -35,10 +38,12 @@
           <%= link_to homes_about_path,class: 'nav-link text-dark' do %> About
           <% end %>
         </button>
+        
       　<button type="button" class="btn btn-outline-dark">
       　  <%= link_to products_path,class: 'nav-link text-dark' do %> 商品一覧
          <% end %>
         </button>
+        
         <button type="button" class="btn btn-outline-dark">
           <%=  link_to new_customer_registration_path,class: 'nav-link text-dark' do %> 新規登録
           <% end %>
