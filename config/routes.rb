@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get 'homes/about'
+    
+    get "search" => "searches#search"
   
     resources :delivery_addresses, only: [:index,:edit,:create,:update,:destroy]
 
