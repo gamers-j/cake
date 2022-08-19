@@ -1,0 +1,54 @@
+<h4>新規会員登録</h4>
+
+<%= form_with model: @customer, url: customer_registration_path do |f| %>
+  <%= render "public/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <dt>名前</dt>
+    <dd>
+      <%= f.label :name, "(姓)" %>
+      <%= f.text_field :first_name, placeholder: "令和", autocomplete: "first_name" %>
+      <%= f.label :name, "(名)" %>
+      <%= f.text_field :last_name, placeholder: "道子", autocomplete: "last_name" %>
+    </dd>
+    <dt>フリガナ</dt>
+    <dd>
+      <%= f.label :name, "(セイ)" %>
+      <%= f.text_field :first_name_kana, placeholder: "レイワ", autocomplete: "first_name_kana" %>
+      <%= f.label :name, "メイ" %>
+      <%= f.text_field :last_name_kana, placeholder: "ミチコ", autocomplete: "last_name_kana" %>
+    </dd>
+    <dt>メールアドレス</dt>
+    <dd>
+      <%= f.email_field :email, placeholder: "sample@example.com", saautofocus: true, autocomplete: "email" %>
+    </dd>
+    <dt>郵便番号(ハイフンなし)</dt>
+    <dd>
+      <%= f.text_field :postal_code, placeholder: "0000000", autocomplete: "postal_code" %>
+    </dd>
+    <dt>住所</dt>
+    <dd>
+      <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", autocomplete: "adderss" %>
+    </dd>
+    <dt>電話番号(ハイフンなし)</dt>
+    <dd>
+      <%= f.text_field :telephone_namber, placeholder: "00000000000", autocomplete: "telephone_namber" %>
+    </dd>
+    <dt>パスワード(6文字以上)</dt>
+    <dd>
+     <%= f.password_field :password, autocomplete: "new-password" %>
+    </dd>
+    <dt>パスワード(確認用)</dt>
+    <dd>
+     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </dd>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "新規登録" %>
+  </div>
+<% end %>
+
+
+<h4>既に登録済みの方</h4>
+<p><%= render "public/shared/links" %>からログインしてください。</p>

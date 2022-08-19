@@ -1,0 +1,37 @@
+<div class="container py-5 ">
+  <div class="row">
+    <div class="col-lg-3">
+      <h5 class="bg-dark text-light text-center">ジャンル一覧・追加</h5>
+    </div>
+  </div>
+  <div>
+  <%= render "form", type: @type %>
+  </div>
+ 
+  <div>
+    <table class="table-hover">
+      <thead class="bg-dark text-light">
+        <tr>
+          <th></th>
+          <th>
+            ジャンル
+          </th>
+          <th colspan = "2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @types.each do |type| %>
+          <tr>
+            <td>
+              <%= type.name %>
+            </td>
+            <td width = "150"></td>
+            <td>
+              <%= link_to '編集する', edit_admin_type_path(type), class: "btn btn-sm btn-success" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

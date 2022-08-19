@@ -1,0 +1,31 @@
+<div class="container">
+<div class="row">
+<div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
+
+  <%= render "layouts/public_header" %>
+
+  <p>ようこそ、ながのCAKEへ！</p>
+  <p>このサイトは、ケーキ販売のECサイトになります。</p>
+  <p>会員でない方も商品の閲覧はできますが、</p>
+  <p>購入には会員登録が必要になります。</p>
+  
+<h2>新着商品</h2>
+  <div class=flex_box>
+  <!--新着順-->
+  <% @products.each.with_index(1) do |product, i| %>
+  
+  <p><%= image_tag product.get_profile_image(50,50) %></p>
+  <!--商品名-->
+  <p><%= product.name %></p>
+  <!--価格-->
+  <p><%= product.nontaxed_price %></p>
+  </div>
+  <% end %> 
+  
+  <div class="d-flex align-items-end">
+  <%= link_to "すべての商品を見る>", products_path %>
+  </div>
+    
+    </div>
+  </div>
+</div>
