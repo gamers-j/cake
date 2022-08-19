@@ -6,21 +6,23 @@
   <p>会員でない方も商品の閲覧はできますが、</p>
   <p>購入には会員登録が必要になります。</p>
   
-<h1>新着商品</h1>
+<h2>新着商品</h2>
   <div class=flex_box>
+  <!--新着順-->
   <% @products.each.with_index(1) do |product, i| %>
   
   <p><%= image_tag product.get_profile_image(50,50) %></p>
   <!--商品名-->
   <p><%= product.name %></p>
   <!--価格-->
-  <p>¥<%= product.nontaxed_price %></p>
+  <p><%= product.nontaxed_price %></p>
   </div>
-  
   <% end %> 
   
-  <%= link_to "すべての商品を見る", products_path %>
-      
+  <div class="d-flex align-items-end">
+  <%= link_to "すべての商品を見る>", products_path %>
+  </div>
+    
     </div>
   </div>
 </div>
