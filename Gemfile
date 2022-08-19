@@ -59,3 +59,5 @@ gem 'devise'
 gem 'net-smtp'
 
 gem "enum_help"
+
+gem 'kaminari','~> 1.2.1'
