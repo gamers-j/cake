@@ -2,22 +2,21 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    customer_path(current_user)
+    customer_path(current_customer)
   end
 
   def after_sign_out_path_for(resource)
     "/"
   end
 
-  protected
+  #protected
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys:[:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :address, :postal_code, :telephone_namber])
-    devise_parameter_sanitizer.permit(:sign_in, keys:[:email])
-  end
+  #def configure_permitted_parameters
+    #devise_parameter_sanitizer.permit(:sign_up, keys:[:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :address, :postal_code, :telephone_namber])
+    #devise_parameter_sanitizer.permit(:sign_in, keys:[:email])
+  #end
   # GET /resource/sign_in
   # def new
   #   super
