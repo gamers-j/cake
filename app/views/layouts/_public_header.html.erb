@@ -11,7 +11,7 @@
 
         <% if customer_signed_in? %>
         <li class="nav-item">
-          <%= link_to "マイページ", customer_path(customer.id), class: 'nav-link text-light btn btn-info rounded-circle p-0" style="width:2rem;height:2rem;' %>
+          <%= link_to "マイページ", customer_path(current_customer), class: 'nav-link text-light btn btn-info rounded-circle p-0" style="width:2rem;height:2rem;' %>
         </li>
 
         <li class="nav-item">
