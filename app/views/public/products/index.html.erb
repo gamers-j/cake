@@ -1,2 +1,15 @@
-<h1>商品一覧</h1>
-<p>Find me in app/views/public/products/index.html.erb</p>
+<% if @type == nil %>
+  <h1>商品一覧</h1>
+<% else %>
+  <%= @type.name %>一覧
+<% end %>
+
+(全<%= @select_products.count %>件)
+
+<% products.each do |product| %>
+
+<%= image_tag item.get_image(100,100) %>
+<%= item.name %>
+<%= item.tax_include_price.to_s(:delimited) %>円
+
+<% end %>
