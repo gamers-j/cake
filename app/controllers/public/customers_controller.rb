@@ -18,7 +18,8 @@ class Public::CustomersController < ApplicationController
 
   def withdraw
   end
-
+  
+  private
 
   def customers_params
     params.require(:customers).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :address, :postal_code, :telephone_namber)
