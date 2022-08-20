@@ -1,8 +1,10 @@
 <div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-    <h2>商品新規登録</h2>
+  <div class="row pt-5">
+    <h3 style="background-color: #C0C0C0;">商品新規登録</h3>
+    </div>
+      <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
     <%= form_with model:@products, local:true do |f| %>
+
      <div class="form-group">
         <%= f.label "商品画像" %>
         <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
@@ -19,12 +21,12 @@
       <div class="form-group">
         <%= f.label "ジャンル" %>
         <%= f.select :faculty, [["ケーキ", "ケーキ"], ["焼き菓子", "焼き菓子"], ["プリン", "プリン"], ["キャンディ", "キャンディ"]], include_blank: "--選択して下さい--" %>
-        </div>
+      </div>
 
       <div class="form-group">
         <%= f.label "税抜価格" %>
-        <%= f.text_field :nontaxed_price, class: "form-control name" %>円
-        </div>
+        <p><%= f.text_field :nontaxed_price, class: "form-control name" %>円</p>
+      </div>
 
         <div class="form-group">
         <%= f.label "販売ステータス" %>
@@ -39,4 +41,5 @@
       </div>
     <% end %>
   </div>
+</div>
 </div>
