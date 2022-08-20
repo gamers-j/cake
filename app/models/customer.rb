@@ -3,4 +3,9 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :cart_produts, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_many :delivery_addresses, dependent: :destroy
+
 end
