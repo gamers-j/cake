@@ -6,7 +6,7 @@ class Public::CustomersController < ApplicationController
   def edit
     @customer = Customer.find(params[:id])
     unless @customer == current_cusotmer
-    redirect_to customers_path(current_customer)
+    redirect_to customer_path(current_customer)
     end
   end
 
