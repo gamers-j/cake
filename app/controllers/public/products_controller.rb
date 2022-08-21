@@ -9,5 +9,10 @@ class Public::ProductsController < ApplicationController
   end
   
   def search
+    @type = Type.find_by(name: params[:keyword])
+    products = @type.products
+    @active_products = products.where(is_active: true)
+    @products = @active_products.page
+    render :index
   end
 end
