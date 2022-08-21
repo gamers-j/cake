@@ -1,5 +1,5 @@
 <h4>ショッピングカート</h4>
-<%= link_to "カートを空にする", cart_products_destroy_all_path(@cart_product.id), method: :delete %>
+<%= link_to "カートを空にする", cart_products_destroy_all_path, method: :delete, class: "btn btn-danger" %>
 
 <table class="table">
   <thead>
@@ -17,15 +17,16 @@
       <td><%= image_tag product.product.get_image(50,50) %><%= product.product.name %></td>
       <td><%= product.taxed_price %></td>
       <td>
-      <%= form_with model:product, url: cart_product_path(product.id), method: :patch do |f| %>
+      <%= form_with model:[:public,product], url: cart_product_path(product.id), method: :patch do |f| %>
         <%= f.hidden_field :product_id, :value => product.id %>
         <%= f.select :amount, *[1..10] %>
         <%= f.submit "変更", class: "btn btn-success w-auto" %>
-      <% end %>  
+      <% end %>
       </td>
       <td><%= product.subtotal %></td>
       <td><%= link_to "削除する", cart_product_path(product.id), method: :delete, class: "btn btn-danger" %></td>
-      <td><%= /td>
+      <% @total += product.subtotal %>
+      <% end %>
     </tr>
   </tbody>
 </table>
