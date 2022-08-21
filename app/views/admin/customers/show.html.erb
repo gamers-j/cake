@@ -1,2 +1,65 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class='container'>
+  <div class='row py-5'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <%= form_with model: @customers, local:true do |f| %>
+    <h3 style="background-color: #C0C0C0;">さんの会員詳細</h3>
+    <table class='table'>
+      <tr>
+        <td>
+          <%= f.label "会員ID" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label "氏名" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label "フリガナ" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label "税抜価格" %>
+          円
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label "郵便番号" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label "住所" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label "電話番号" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label "メールアドレス" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label "会員ステータス" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.submit "編集する",class: 'btn btn-outline-success btn-lg' %>
+        </td>
+        <td>
+          <%= f.submit "注文履歴一覧を見る",class: 'btn btn-outline-success btn-lg' %>
+        </td>
+      </tr>
+    </table>
+     <% end %>
+    </div>
+  </div>
+</div>
