@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Order.create(customer_id: 1, address: "aaa", postal_code: "01234", name: "adsf", postage: 800)
+Order.create(customer_id: 1, address: "aaa", postal_code: "01234", name: "adsf", postage: 800,total_amount:1000)
 
 Admin.create!(
    email: 'admin@gmail.com',
