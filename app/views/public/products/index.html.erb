@@ -1,15 +1,25 @@
-<% if @type == nil %>
-  <h1>商品一覧</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-10">
+      
+<h2><% if @type == nil %>
+  <strong>商品一覧</strong>
 <% else %>
   <%= @type.name %>一覧
 <% end %>
 
-(全<%= @active_products.count %>件)
+(全<%= @active_products.count %>件)</h2>
 
 <% @products.each do |product| %>
-
-<%= image_tag item.get_image(100,100) %>
-<%= item.name %>
-¥<%= item.nontaxed_price.to_s(:delimited) %>
-
+<%= link_to product_path do %>
+  <%= image_tag item.get_image(100,100) %><br>
+  <%= item.name %><br>
+  ¥<%= item.nontaxed_price.to_s(:delimited) %>
 <% end %>
+<% end %>
+
+<div class="mt-5"><%= paginate @products %></div>
+
+    </div>
+  </div>
+</div>
