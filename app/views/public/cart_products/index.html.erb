@@ -15,7 +15,7 @@
     <% @cart.each do |product| %>
     <tr>
       <td><%= image_tag product.product.get_image(50,50) %><%= product.product.name %></td>
-      <td><%= product.taxed_price %></td>
+      <td>¥<%= product.add_tax_taxed_price.to_s(:delimited) %></td>
       <td>
       <%= form_with model:[:public,product], url: cart_product_path(product.id), method: :patch do |f| %>
         <%= f.hidden_field :product_id, :value => product.id %>
