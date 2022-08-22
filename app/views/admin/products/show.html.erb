@@ -23,11 +23,17 @@
         </tr>
         <tr>
           <th>販売ステータス</th>
-          <th><%= @product.is_active %></th>
+          <th>
+            <% if @product.is_active == false %>
+              <span class="text-success">販売中</span>
+            <% else %>
+              <span class="text-secondary">販売停止中</span>
+            <% end %>
+          </th>
         </tr>
         <tr>
           <th>
-            <%= link_to "編集する",edit_admin_product(@product),class: 'btn btn-outline-success btn-lg' %>
+            <%= link_to "編集する",edit_admin_product_path(@product),class: 'btn btn-outline-success btn-lg' %>
           </th>
         </tr>
       </table>
