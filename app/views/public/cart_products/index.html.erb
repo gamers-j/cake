@@ -14,7 +14,7 @@
   <tbody>
     <% @cart.each do |product| %>
     <tr>
-      <td><%= image_tag product.product.get_image(50,50) %><%= product.product.name %></td>
+      <td><%= image_tag product.product.get_profile_image(50,50) %><%= product.product.name %></td>
       <td>¥<%= product.add_tax_taxed_price.to_s(:delimited) %></td>
       <td>
       <%= form_with model:[:public,product], url: cart_product_path(product.id), method: :patch do |f| %>
@@ -25,7 +25,7 @@
       </td>
       <td><%= product.subtotal %></td>
       <td><%= link_to "削除する", cart_product_path(product.id), method: :delete, class: "btn btn-danger" %></td>
-      <% @total += product.subtotal %>
+    <% @total += product.subtotal %>
     <% end %>
     </tr>
   </tbody>
