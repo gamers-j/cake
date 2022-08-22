@@ -1,2 +1,28 @@
-<h1>商品一覧</h1>
-<p>Find me in app/views/public/products/index.html.erb</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2">
+      <%= render "public/homes/type", types: @types %>
+    </div>
+    
+<div class="col-md-10">
+  <h2><% if @type == nil %>
+    <strong>商品一覧</strong>(全<%= @active_products.count %>件)
+<% else %>
+  <strong><%= @type.name %>一覧</strong>(全<%= @active_products.count %>件)
+<% end %></h2>
+
+
+
+<% @products.each do |product| %>
+<%= link_to product_path(product.id) do %>
+  <%= image_tag product.get_profile_image(100,100) %><br>
+  <%= product.name %><br>
+  ¥<%= product.nontaxed_price.to_s(:delimited) %>
+<% end %>
+<% end %>
+
+<div class="mt-5"><%= paginate @products %></div>
+
+    </div>
+  </div>
+</div>

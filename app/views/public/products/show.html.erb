@@ -1,2 +1,23 @@
-<h1>Public::Products#show</h1>
-<p>Find me in app/views/public/products/show.html.erb</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2">
+      <%= render "public/homes/type", types: @types %>
+    </div>
+    <div class="col-md-5 text-center mt-5">
+      <%= image_tag @product.get_profile_image(200,300) %>
+    </div>
+    <div class="col-md-5 text-left mt-5">
+      <div>
+        <h2><%= @product.name %></h2>
+        <h3><%= @product.introduction %></h3>
+        <p>¥<%= @product.add_tax_taxed_price.to_s(:delimited) %>(税込)</p>
+        
+        <%= form_with model: [CartProduct.new] do |f| %>
+          <%= f.hidden_field :product_id, :value  => @product.id %>
+          <%= f.select :quantity ,*[1..10],include_blank: "個数選択" %>
+          <%= f.submit "カートに入れる", class: "btn btn-success ml-5" %>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
