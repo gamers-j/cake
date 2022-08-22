@@ -7,6 +7,7 @@ class Public::ProductsController < ApplicationController
 
   def show
     @product=Product.find(params[:id])
+    @types = Type.all
   end
   
   def search
