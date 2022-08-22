@@ -3,8 +3,7 @@
     <h4 class="mt-5">注文情報入力</h4>
     <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
     
-    
-    <p style="margin:0;"><strong>支払方法</strong></p>
+    <p><strong>支払方法</strong></p>
       <%= f.radio_button :payment_method, 'credit_card', checked: true %>
       <%= f.label :payment_method,"クレジットカード", value:'credit_card' %><br>
       <%= f.radio_button :payment_method, 'transfer' %>
