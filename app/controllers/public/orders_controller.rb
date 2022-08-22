@@ -4,6 +4,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @order = Order.where(customr_id: current_customer.id)
+    @product = Product.all
   end
 
   def show
