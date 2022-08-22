@@ -4,8 +4,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @order = Order.where(customr_id: current_customer.id)
-    @product = Product.all
+    @orders = Order.where(customer_id: current_customer.id)
   end
 
   def show
