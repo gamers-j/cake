@@ -1,62 +1,55 @@
 <div class='container'>
   <div class='row py-5'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-    <h3 style="background-color: #C0C0C0;"><%= @customer.name %>さんの会員詳細</h3>
+    <h3 style="background-color: #C0C0C0;"><%= @customer.full_name %>さんの会員詳細</h3>
     <table class='table'>
         <tr>
           <th>会員ID</th>
-          <th><%= @customer.name %></th>
+          <th><%= @customer.id %></th>
         </tr>
         <tr>
           <th>氏名</th>
-          <th><%= @customer.introduction %></th>
+          <th><%= @customer.full_name %></th>
         </tr>
         <tr>
           <th>フリガナ</th>
-          <th><%= @customer.type.name %></th>
-        </tr>
-        <tr>
-          <th>税抜価格</th>
-          <th><%= @customer.nontaxed_price %>円</th>
+          <th><%= @customer.full_name_kana %></th>
         </tr>
         <tr>
           <th>郵便番号</th>
-          <th><%= @customer.name %></th>
+          <th><%= @customer.postal_code %></th>
         </tr>
         <tr>
           <th>住所</th>
-          <th><%= @customer.name %></th>
+          <th><%= @customer.address %></th>
         </tr>
         <tr>
           <th>電話番号</th>
-          <th><%= @customer.name %></th>
+          <th><%= @customer.telephone_namber %></th>
         </tr>
         <tr>
           <th>メールアドレス</th>
-          <th><%= @customer.name %></th>
+          <th><%= @customer.email %></th>
         </tr>
         <tr>
           <th>会員ステータス</th>
           <th>
-            <% if @customer.is_active == false %>
-              <span class="text-success">販売中</span>
+            <% if @customer.is_deleted == true %>
+              <span class="text-success">有効</span>
             <% else %>
-              <span class="text-secondary">販売停止中</span>
+              <span class="text-secondary">無効</span>
             <% end %>
           </th>
         </tr>
         <tr>
           <th>
-            <%= link_to "編集する",edit_admin_product_path(@customer),class: 'btn btn-outline-success btn-lg' %>
+            <%= link_to "編集する",edit_admin_customer_path(@customer),class: 'btn btn-outline-success btn-lg' %>
           </th>
-        </tr>
-        <tr>
           <th>
-            <%= link_to "注文履歴一覧を見る",edit_admin_product_path(@customer),class: 'btn btn-outline-success btn-lg' %>
+            <%= link_to "注文履歴一覧を見る",admin_order_path(@customer),class: 'btn btn-outline-success btn-lg' %>
           </th>
         </tr>
       </table>
-     <% end %>
     </div>
   </div>
 </div>
