@@ -7,19 +7,18 @@
   <thead>
     <tr>
       <th>会員ID</th>
-      <th colspan="5">氏名</th>
+      <th>氏名</th>
       <th>メールアドレス</th>
-      <th align="center">ステータス</th>
+      <th>ステータス</th>
     </tr>
 　</thead>
 　<tbody>
 　  <% @customers.each do |customer| %>
 　  <tr>
 　    <td><%= customer.id %></td>
-　    <td><%= link_to customer.name %></td>
-　    <td><%= customer.introduction %></td>
-　    <td><%= customer.nontaxed_price %></td>
-　    <td><%= customer.is_active %></td>
+　    <td><%= link_to customer.full_name,admin_customer_path(customer.id) %></td>
+　    <td><%= customer.email %></td>
+　    <td><%= customer.is_deleted %></td>
 　  </tr>
 　  <% end %>
 　</tbody>
