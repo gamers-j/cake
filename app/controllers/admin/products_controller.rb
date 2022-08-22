@@ -30,7 +30,7 @@ class Admin::ProductsController < ApplicationController
 
   private
 
-def product_params
-  params.require(:product).permit(:type_id,:name,:introduction,:nontaxed_price,:is_active)
-end
+  def product_params
+    params.require(:product).permit(:type_id,:name,:introduction,:nontaxed_price,:is_active)
+  end
 end
