@@ -19,14 +19,14 @@
       <td>
       <%= form_with model:[:public,product], url: cart_product_path(product.id), method: :patch do |f| %>
         <%= f.hidden_field :product_id, :value => product.id %>
-        <%= f.select :amount, *[1..10] %>
+        <%= f.select :quantity, *[1..10] %>
         <%= f.submit "変更", class: "btn btn-success w-auto" %>
       <% end %>
       </td>
       <td><%= product.subtotal %></td>
       <td><%= link_to "削除する", cart_product_path(product.id), method: :delete, class: "btn btn-danger" %></td>
       <% @total += product.subtotal %>
-      <% end %>
+    <% end %>
     </tr>
   </tbody>
 </table>
