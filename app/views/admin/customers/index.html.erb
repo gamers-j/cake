@@ -1,35 +1,33 @@
 <div class='container'>
   <div class='row pt-5'>
-    <h3 style="background-color: #C0C0C0;">会員一覧</h3>
+    <div class="col-lg-3">
+      <h5 class="bg-dark text-light text-center">会員一覧</h5>
     </div>
-      <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
-<table width="800">
-  <thead>
-    <tr>
-      <th>会員ID</th>
-      <th>氏名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
-    </tr>
-　</thead>
-　<tbody>
-　  <% @customers.each do |customer| %>
-　  <tr>
-　    <td><%= customer.id %></td>
-　    <td><%= link_to customer.full_name,admin_customer_path(customer.id) %></td>
-　    <td><%= customer.email %></td>
-　    <td>
-        <% if customer.is_deleted == true %>
-          <span class="text-success">有効</span>
-        <% else %>
-          <span class="text-secondary">退会</span>
-        <% end %>
-      </td>
-　  </tr>
-　  <% end %>
-　</tbody>
-</table>
-</div>
-</div>
-</div>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+    　</thead>
+    　<tbody>
+　      <% @customers.each do |customer| %>
+　      <tr>
+　        <td><%= customer.id %></td>
+　        <td><%= link_to customer.full_name,admin_customer_path(customer.id) %></td>
+　        <td><%= customer.email %></td>
+　        <td>
+            <% if customer.is_deleted == false %>
+              <span class="text-success">有効</span>
+            <% else %>
+              <span class="text-secondary">退会</span>
+            <% end %>
+          </td>
+　      </tr>
+　      <% end %>
+    　</tbody>
+    </table>
+  </div>
 </div>

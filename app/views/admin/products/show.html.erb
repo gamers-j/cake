@@ -1,6 +1,8 @@
 <div class='container'>
   <div class="row pt-5">
-    <h3 style="background-color: #C0C0C0;">商品詳細</h3>
+    <div class="col-lg-3">
+      <h5 class="bg-dark text-light text-center">商品詳細</h5>
+    </div>
   </div>
   <div class="row">
     <%= image_tag @product.get_profile_image(400, 200) %>
@@ -25,7 +27,7 @@
         <tr>
           <th>販売ステータス</th>
           <th>
-            <% if @product.is_active == true %>
+            <% if @product.is_active == false %>
               <span class="text-success">販売中</span>
             <% else %>
               <span class="text-secondary">販売停止中</span>
@@ -41,4 +43,3 @@
     </div>
   </div>
 </div>
-
