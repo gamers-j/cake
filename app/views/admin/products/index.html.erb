@@ -1,37 +1,38 @@
 <div class='container'>
   <div class='row pt-5'>
-<table width="900">
-  <h3 style="background-color: #C0C0C0;">商品一覧</h3>
-  <%= link_to '新規登録', new_admin_product_path %>
+    <div class="col-lg-3">
+      <h5 class="bg-dark text-light text-center">商品一覧</h5>
+    </div>
+    <div class="col-lg-3">
+      <%= link_to '新規登録', new_admin_product_path %>
+    </div>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+      </tr>
+  　</thead>
+  　<tbody>
+  　  <% @products.each do |product| %>
+　    <tr>
+　      <td><%= product.id %></td>
+　      <td><%= link_to product.name,admin_product_path(product.id) %></td>
+　      <td><%= product.nontaxed_price %></td>
+　      <td><%= product.type.name %></td>
+　      <td>
+          <% if product.is_active == false %>
+            <span class="text-success">販売中</span>
+          <% else %>
+            <span class="text-secondary">販売停止中</span>
+          <% end %>
+        </td>
+　    </tr>
+　    <% end %>
+    </tbody>
+  </table>
   </div>
-  <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
-  <thead>
-    <tr style="background-color: 	#CCFFFF;">
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th>ステータス</th>
-    </tr>
-　</thead>
-　<tbody>
-　  <% @products.each do |product| %>
-　  <tr>
-　    <td><%= product.id %></td>
-　    <td><%= link_to product.name,admin_product_path(product.id) %></td>
-　    <td><%= product.nontaxed_price %></td>
-　    <td><%= product.type.name %></td>
-　    <td>
-        <% if product.is_active == true %>
-          <span class="text-success">販売中</span>
-        <% else %>
-          <span class="text-secondary">販売停止中</span>
-        <% end %>
-      </td>
-　  </tr>
-　  <% end %>
-　</tbody>
-</table>
-</div>
-</div>
 </div>
