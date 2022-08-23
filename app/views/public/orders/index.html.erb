@@ -1,5 +1,5 @@
 <h1>注文履歴一覧</h1>
-<table class="table table-bordered">
+<table class="table table-bordered width="300"">
   <thead>
     <tr>
       <th>注文日</th>
@@ -14,12 +14,16 @@
     <% @orders.each do |order| %>
     <tr>
       <td><%= order.created_at.strftime("%Y年%m月%d日") %></td>
-      <td><%= order.address %></td>
+      <td>〒<%= order.postal_code %><br>
+          <%= order.address %><br>
+          <%# order.customer.each do |customer| %>
+          <%#= customer.first_name %><%#-= customer.last_name %>
+          <%# end %></td>
       <td><% order.product_orders.each do |product_order| %>
           <%= product_order.product.name %>
           <% end %></td>
-      <td>¥<%= order.total_amount.to_s(:delimited) %></td>
-      <td><%= order.status %></td>
+      <td>¥<%= @total = @total + order.total_amount %></td>
+      <td><%= order.status_i18n %></td>
       <td><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></td>
     </tr>
     <% end %>
