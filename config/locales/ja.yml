@@ -12,10 +12,10 @@ ja:
           sent: "発送済み"
       product_order:
         making_status:
-        　cannot_production: "製作不可"
-        　waiting_for_production: "製作待ち"
-        　production: "制作中"
-        　production_completed: "製作完了"
+          cannot_production: "製作不可"
+          waiting_for_production: "製作待ち"
+          production: "制作中"
+          production_completed: "製作完了"
   activerecord:
     errors:
       messages:
