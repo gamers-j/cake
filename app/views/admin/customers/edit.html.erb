@@ -52,10 +52,10 @@
        <tr>
          <td>
         <%= f.label "会員ステータス" %>
-        <%= f.radio_button :is_deleted, :true %>
-        <%= f.label :is_deleted, "有効", {value: :true, style: "display: inline-block;"} %>
-        <%= f.radio_button :is_deleted, :false %>
-        <%= f.label :is_deleted, "退会", {value: :false, style: "display: inline-block;"} %>
+        <%= f.radio_button :is_deleted, 'true' %>
+        <%= f.label :is_deleted, "有効", {value: 'true', style: "display: inline-block;"} %>
+        <%= f.radio_button :is_deleted, 'false' %>
+        <%= f.label :is_deleted, "退会", {value: 'false', style: "display: inline-block;"} %>
         </td>
       </tr>
       <tr>
