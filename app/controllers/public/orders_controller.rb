@@ -8,6 +8,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    #注文履歴詳細アクション
+    @order = Order.find(params[:id])
+    @product = ProductOrder.where(order_id: @order.id)
+    @total = 0
   end
 
   def create
@@ -15,6 +19,7 @@ class Public::OrdersController < ApplicationController
     @order = current_customer.orders.new(order_params)
     if @order.save
       @cart_products.each do |cart|
+        #product_orderにcart_productsのデータを保存
         product_order = ProductOrder.new
         product_order.product_id = cart.product_id
         product_order.order_id = @order.id
@@ -34,13 +39,16 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    #public_orderの確認アクション
     @order = Order.new(order_params)
     if params[:order][:address_number] == "1"
       @order.name = current_customer.first_name + current_customer.last_name
+      @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
     elsif params[:order][:address_number] == "2"
       if Address.exists?(name: params[:order][:registered])
         @order.name = Address.find(params[:order][:registered]).name
+        @order.postal_code = Address.find(params[:order][:registered]).postal_code
         @order.address = Address.find(params[:order][:registered]).address
       else
         render :new
@@ -65,6 +73,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def address_params
-    params.require(:order).permit(:name, :address)
+    params.require(:order).permit(:name, :postal_code, :address)
   end
 end
