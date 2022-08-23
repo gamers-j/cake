@@ -6,10 +6,8 @@ class Order < ApplicationRecord
   def total_amount
     #product_orders.taxed_price * product_orders.quantity + 800
     total = 0
-    product_orders.eath do |product_order|
-    product_order.add_tax_taxed_price
-    
-    
+    product_orders.each do |product_order|
+    total = product_order.add_tax_taxed_price * product_order.quantity
     end
     total + 800
   end
