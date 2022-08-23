@@ -37,7 +37,7 @@
    </table></h4>
   <%#特定の注文データの中の注文履歴を全部持ってくる%>
   <% @order.product_orders.all.each do |product_order| %>
-  <%# 制作ステータス（ProductOrderの中のカラムmaking_status）の更新%>
+  <%# 制作ステータス（ProductOrderの中のカラムmaking_status）の更新A%>
     <%= form_with model: product_order, url: admin_product_order_path do |f| %>
     <%= f.select :making_status, ProductOrder.making_statuses_i18n.invert,include_blank: "--選択して下さい--" %>
     <% end %>
