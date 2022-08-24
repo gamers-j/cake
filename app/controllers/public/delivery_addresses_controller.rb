@@ -1,4 +1,4 @@
-class Public::DeliveryAddressController < ApplicationController
+class Public::DeliveryAddressesController < ApplicationController
   def index
     @address = DeliveryAddress.new
   end
@@ -9,7 +9,7 @@ class Public::DeliveryAddressController < ApplicationController
   def create
     @address = DeliveryAddress.new
     @address.save
-    redirect_to
+    redirect_to delivery_addresses_path
   end
   
   def update
