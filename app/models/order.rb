@@ -7,16 +7,15 @@ class Order < ApplicationRecord
   def subtotal
     total = 0
     product_orders.each do |product_order|
-    total = product_order.add_tax_taxed_price * product_order.quantity
+    total += product_order.add_tax_taxed_price * product_order.quantity
     end
     total
   end
 
-  def total_amount
-    #product_orders.taxed_price * product_orders.quantity + 800
+  def total_amounts
     total = 0
     product_orders.each do |product_order|
-    total = product_order.add_tax_taxed_price * product_order.quantity
+    total += product_order.add_tax_taxed_price * product_order.quantity
     end
     total + 800
   end

@@ -11,7 +11,6 @@ class Public::OrdersController < ApplicationController
     #注文履歴詳細アクション
     @order = Order.find(params[:id])
     @product = ProductOrder.where(order_id: @order.id)
-    @total = 0
   end
 
   def create
