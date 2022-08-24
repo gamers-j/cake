@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:show,:index,:edit,:update]
     resources :types, only: [:index,:create,:edit,:update]
     resources :products, except: [:destroy]
+    resources :product_orders, only: [:update]
   end
   
   scope module: :public do
