@@ -5,41 +5,84 @@
     </div>
   </div>
    <div class = "row">
-   <h4><table>
-    <thead>
+    <h4><table>
+     <tr>
+      <th>購入者</th>
+       <td><%= @order.customer.full_name %></td>
+     </tr>
+     <tr>
+      <th>注文日</th>
+       <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+     </tr>
+     <tr>
+      <th>配送先</th>
+       <td><%= @order.postal_code %><%= @order.address %><br>
+           <%= @order.name %></td>
+     </tr>
+     <tr>
+      <th>支払方法</th>
+       <td><%= @order.payment_method_i18n %></td>
+     </tr>
+     <tr>
+      <th>注文ステータス</th>
+       <%# urlをupdate後に指定した方がsubmitのルートがわかりやすい%>
+       <td><%= form_with model: @order, url: admin_order_path do |f| %>
+           <%#Order.statusesでorderモデルのstatusカラムを複数呼び出すためにsutatusesにする、invertで数字に付随した文字を日本語化%>
+           <%= f.select :status, Order.statuses_i18n.invert,include_blank: "--選択して下さい--" %>
+           <%= f.submit "更新",class: 'btn btn-success btn-lg ml-5' %>
+           <% end %></td>
+     </tr>
+    </table></h4>
+   </div>
+    <div class = "row">
+     <div class = "col-8">
+      <table class = "table">
+       <thead>
         <tr>
-         <th>購入者</th>
-         <td><%= @order.customer.full_name %></td>
+         <th>商品名</th>
+         <th>単価（税込）</th>
+         <th>数量</th>
+         <th>小計</th>
+         <th>制作ステータス</th>
         </tr>
-        <tr>
-         <th>注文日</th>
-         <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-        </tr>
-        <tr>
-         <th>配送先</th>
-         <td><%= @order.postal_code %><%= @order.address %></td>
-         <td><%= @order.name %></td>
-        </tr>
-        <tr>
-         <th>支払方法</th>
-         <td><%= @order.payment_method_i18n %></td>
-        </tr>
-        <tr>
-         <th>注文ステータス</th>
-         <%# urlをupdate後に指定した方がsubmitのルートがわかりやすい%>
-         <td><%= form_with model: @order, url: admin_order do |f| %>
-         <%#Order.statusesでorderモデルのstatusカラムを複数呼び出すためにsutatusesにする、invertで数字に付随した文字を日本語化%>
-         <%= f.select :status, Order.statuses_i18n.invert,include_blank: "--選択して下さい--" %>
+       </thead>
+       
+       <tbody>
+        <%#特定の注文データの中の注文履歴を全部持ってくる%>
+        <% @order.product_orders.all.each do |product_order| %>
+         <tr>
+          <td><%= product_order.product.name %></td>
+          <td><%= product_order.add_tax_taxed_price %></td>
+          <td><%= product_order.quantity %></td>
+          <td><%= product_order.subtotal %></td>
+          <td>
+          <%# 制作ステータス（ProductOrderの中のカラムmaking_status）の更新%>
+          <%= form_with model: product_order, url: admin_product_order_path do |f| %>
+          <%= f.select :making_status, ProductOrder.making_statuses_i18n.invert,include_blank: "--選択して下さい--" %>
+          <%= f.submit "更新",class: 'btn btn-success ml-3' %>
           <% end %>
-         </td>
-        </tr>
-     </thead>
-   </table></h4>
-  <%#特定の注文データの中の注文履歴を全部持ってくる%>
-  <% @order.product_orders.all.each do |product_order| %>
-  <%# 制作ステータス（ProductOrderの中のカラムmaking_status）の更新A%>
-    <%= form_with model: product_order, url: admin_product_order_path do |f| %>
-    <%= f.select :making_status, ProductOrder.making_statuses_i18n.invert,include_blank: "--選択して下さい--" %>
-    <% end %>
-  <% end %>
+          </td>
+         </tr>
+        <% end %>
+       </tbody>
+      </table>
+     </div>
+     
+       <div class = "col-4">
+        <table>
+         <tr>
+          <th>商品合計</th>
+           <td></td>
+         </tr>
+         <tr>
+          <th>送料</th>
+           <td></td>
+         </tr>
+         <tr>
+          <th>請求金額合計</th>
+           <td></td>
+         </tr>
+        </table>
+       </div>
+    </div>
 </div>
