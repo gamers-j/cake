@@ -15,6 +15,10 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
+    @customer = Customer.find(params[:id])
+    if @customer.update(customers_params)
+      redirect_to customer_path(current_customer)
+    end
   end
 
   def withdraw
@@ -28,6 +32,6 @@ class Public::CustomersController < ApplicationController
   private
 
   def customers_params
-    params.require(:customers).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :address, :postal_code, :telephone_namber, :email)
+    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :address, :postal_code, :telephone_namber, :email)
   end
 end
