@@ -3,7 +3,7 @@ class ProductOrder < ApplicationRecord
   belongs_to :product
   belongs_to :order
 
-def add_tax_taxed_price
+def  add_tax_taxed_price
   (self.taxed_price * 1.10).round
 end
 
