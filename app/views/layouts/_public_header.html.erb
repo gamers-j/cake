@@ -1,8 +1,7 @@
 <header class="shadow-sm">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <button type="button" class="btn btn-info pull-left" style="width:250px">
-      <h2>LOGO</h2>
-    </button>
+    <%= image_tag "no_image.jpg" %>
+       <h1><%= link_to "Nagano Cake",root_path, class: 'btn btn-info pull-left ml-2 "style="width:250px;height:300px' %></h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,9 +31,10 @@
           <%= link_to "About", homes_about_path, class: 'nav-link text-light btn btn-info rounded-circle p-0" style="width:2rem;height:2rem;' %>
         </li>
 
-      　<li class="nav-item">
-      　   <%= link_to "商品一覧", products_path, class:'nav-link text-light btn btn-info ml-5 rounded-circle p-0" style="width:2rem;height:2rem;' %>
-      　</li>
+        <li class="nav-item">
+          <%= link_to "商品一覧", products_path, class: 'nav-link text-light btn btn-info ml-5 rounded-circle p-0" style="width:2rem;height:2rem;' %>
+        </li>
+
 
         <li class="nav-item">
           <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-light btn btn-info ml-5 rounded-circle p-0" style="width:2rem;height:2rem;' %>
@@ -42,6 +42,9 @@
 
         <li class="nav-item">
           <%= link_to "ログイン", customer_session_path, class: 'nav-link text-light btn btn-info ml-5 rounded-circle p-0" style="width:2rem;height:2rem;' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "管理者",  new_admin_session_path, class: 'nav-link text-light btn btn-info ml-5 rounded-circle p-0" style="width:2rem;height:2rem;' %>
         </li>
         <% end %>
         </ul>
