@@ -1,4 +1,6 @@
 class Public::DeliveryAddressesController < ApplicationController
+  before_action :ensure_correct_customer, only: [:index, :edit, :create, :update, :destroy]
+
   def index
     @address = DeliveryAddress.new
     @addresses = current_customer.delivery_addresses
@@ -31,8 +33,14 @@ class Public::DeliveryAddressesController < ApplicationController
   end
 
   private
+
   def delivery_address_params
     params.require(:delivery_address).permit(:postal_code, :name, :address)
+  end
+
+  def ensure_correct_customer
+    @address = current_customer
+    redirect_to products_path unless @address = current_customer
   end
 
 end
