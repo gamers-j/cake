@@ -12,7 +12,7 @@
 |コントローラー|アクション|メソッド|URL|目的|
 |---|---|---|---|---|
 |public/homes|top|GET|/|トップページ|
-||about|GET|/about|アバウトページ|
+|/2.|about|GET|/about|アバウトページ|
 |public/products|index|GET|/products|商品一覧|
 ||show|GET|/products/:id|商品詳細|
 |public/registrations|new|GET|/customers/sign_up|顧客の会員登録画面|
