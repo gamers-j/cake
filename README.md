@@ -11,9 +11,8 @@
 ## public
 |コントローラー|アクション|メソッド|URL|目的|
 |---|---|---|---|---|
-|/2. public/homes|top|GET|/|トップページ|
+|_=/2.public/homes|top|GET|/|トップページ|
 ||about|GET|/about|アバウトページ|
-|--------|
 |public/products|index|GET|/products|商品一覧|
 ||show|GET|/products/:id|商品詳細|
 |public/registrations|new|GET|/customers/sign_up|顧客の会員登録画面|
@@ -44,25 +43,25 @@
 ||destroy|DELETE|/delivery_addresses/:id|配送先の削除|
 
 ## admin
-#### admin/sessions	       new  	GET	/admin/sign_in	管理者ログイン画面
-#### create	                      POST	/admin/sign_in	管理者ログイン
-#### destroy	                      DELETE	/admin/sign_out	管理者ログアウト
-#### admin/homes	           top	  GET	/admin	管理者トップページ(注文履歴一覧)
-#### admin/products	       index	GET	/admin/products	商品一覧
-#### new	                          GET	/admin/products/new	商品新規登録画面
-#### create                      	POST	/admin/products	商品情報の新規登録
-#### show	                        GET	/admin/products/:id	商品詳細画面
-#### edit                        	GET	/admin/products/:id/edit	商品編集画面
-#### update	                      PATCH	/admin/products/:id	商品情報の更新
-#### admin/types            index	GET	/admin/types	ジャンル管理画面(一覧・追加を兼ねる)
-#### create	                      POST	/admin/types	ジャンルデータ登録
-#### edit	                        GET	/admin/types/:id/edit	ジャンル編集画面
-#### update              	        PATCH	/admin/types/:id	ジャンルデータ更新
-#### admin/customers 	     index	GET	/admin/customers	顧客一覧画面
-#### show	                        GET	/admin/customers/:id	顧客詳細画面
-#### edit	                        GET	/admin/customers/:id/edit	顧客編集画面
-#### update                      	PATCH	/admin/customers/:id	顧客情報の更新
-#### admin/orders	         show	  GET	/admin/orders/:id	注文詳細画面(ステータス編集を兼ねる)
+|admin/sessions|new|GET|/admin/sign_in|管理者ログイン画面|
+||create|POST|/admin/sign_in|管理者ログイン|
+||destroy|DELETE|/admin/sign_out|管理者ログアウト|
+|admin/homes|top|GET|/admin|管理者トップページ(注文履歴一覧)|
+|admin/products|index|GET|/admin/products|商品一覧|
+||new|GET|/admin/products/new|商品新規登録画面|
+||create|POST|/admin/products|商品情報の新規登録|
+||show|GET|/admin/products/:id|商品詳細画面|
+||edit|GET|/admin/products/:id/edit|商品編集画面|
+||update|PATCH|/admin/products/:id|商品情報の更新|
+|admin/types|index|GET|/admin/types|ジャンル管理画面(一覧・追加を兼ねる)|
+||create|POST|/admin/types|ジャンルデータ登録|
+||edit|GET|/admin/types/:id/edit|ジャンル編集画面|
+||update|PATCH|/admin/types/:id|ジャンルデータ更新|
+|admin/customers|index|GET|/admin/customers|顧客一覧画面|
+||show|GET|/admin/customers/:id|顧客詳細画面|
+||edit|GET|/admin/customers/:id/edit|顧客編集画面|
+||update|PATCH|/admin/customers/:id|顧客情報の更新|
+|admin/orders|show|GET|/admin/orders/:id|注文詳細画面(ステータス編集を兼ねる)
 #### admin/orders	         update	PATCH	/admin/orders/:id	注文ステータス・着手状況の更新
 #### admin/product_orders   update	PATCH	/admin/product_orders/:id	製作ステータスの更新 
 
