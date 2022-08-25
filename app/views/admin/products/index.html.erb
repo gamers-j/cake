@@ -2,6 +2,9 @@
   <div class='row pt-5'>
     <div class="col-lg-3">
       <h5 class="bg-dark text-light text-center">商品一覧</h5>
+      </div>
+      <div class="col-lg-3 text-right ml-auto">
+      <%= link_to '新規登録', new_admin_product_path,class: "btn btn-danger" %>
     </div>
     <div class="col-lg-3">
     </div>
@@ -31,10 +34,11 @@
         </td>
 　    </tr>
 　    <% end %>
-     <%= link_to '新規登録', new_admin_product_path,class: "btn btn-danger" %>
+
     </tbody>
   </table>
   </div>
+
   <div class="row">
     <div class="col-12 d-flex justify-content-center">
   <%= paginate @products %>
