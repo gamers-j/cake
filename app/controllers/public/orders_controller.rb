@@ -46,10 +46,10 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
     elsif params[:order][:address_number] == "2"
-      if Address.exists?(name: params[:order][:registered])
-        @order.name = Address.find(params[:order][:registered]).name
-        @order.postal_code = Address.find(params[:order][:registered]).postal_code
-        @order.address = Address.find(params[:order][:registered]).address
+      if DeliveryAddress.exists?(name: params[:order][:registered])
+        @order.name = DeliveryAddress.find(params[:order][:registered]).name
+        @order.postal_code = DeliveryAddress.find(params[:order][:registered]).postal_code
+        @order.address = DeliveryAddress.find(params[:order][:registered]).address
       else
         render :new
       end

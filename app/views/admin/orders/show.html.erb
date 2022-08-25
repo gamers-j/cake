@@ -67,22 +67,25 @@
        </tbody>
       </table>
      </div>
-     
-       <div class = "col-4">
-        <table>
+     <%# d-flex align-items-end" style="height:300px;でテキストボックス下寄せ%>
+       <div class = "col-4 d-flex align-items-end " style="height:300px;">
+        <h5><table >
          <tr>
           <th>商品合計</th>
-           <td></td>
+          <%# 一回の注文の小計の合計を出す%>
+           <td><%= @order.subtotal %></td>
          </tr>
          <tr>
           <th>送料</th>
-           <td></td>
+           <%# 一回の注文の送料の合計を出す%>
+           <td><%= @order.postage %></td>
          </tr>
          <tr>
           <th>請求金額合計</th>
-           <td></td>
+           <%# 上二つの合計を出す%>
+           <td><%= @order.total_amounts %></td>
          </tr>
-        </table>
+        </table></h5>
        </div>
     </div>
 </div>
