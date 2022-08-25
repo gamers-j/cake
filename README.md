@@ -4,7 +4,8 @@
 # 概要																									
 ## 長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。																									
 
-# ER図																									
+# ER図
+![ER図](https://github.com/gamers-j/cake/blob/develop/ER%E5%9B%B3.png)
 
 # アプリケーション詳細設計	
 ## public
