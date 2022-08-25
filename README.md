@@ -12,35 +12,35 @@
 |コントローラー|アクション|メソッド|URL|目的|
 |---|---|---|---|---|
 |public/homes|top|GET|/|トップページ|
-|^           |about|GET|/about|アバウトページ|
-|public/products|index|GET|products|商品一覧|
-#### show	                          GET	/products/:id	商品詳細
-#### public/registrations    	new  	GET	/customers/sign_up	顧客の会員登録画面
-#### create	                        POST	/customers	顧客の会員登録
-#### public/sessions	          new  	GET	/customers/sign_in	顧客ログイン画面
-#### create	                        POST	/customers/sign_in	顧客ログイン
-#### destroy	                        DELETE	/customers/sign_out	顧客ログアウト
-#### public/customers	        show	GET	/customers	顧客のマイページ
-#### edit	                          GET	/customers/information/edit	顧客の登録情報編集画面
-#### update	                        PATCH	/customers/infomation	顧客の登録情報更新
-#### unsubscribe	                    GET	/customers/unsubscribe	顧客の退会確認画面
-#### withdraw	                      PATCH	/customers/withdraw	顧客の退会処理(ステータスの更新)
-#### public/cart_products    	index	GET	/cart_products	カート内商品一覧画面(数量変更・カート削除の要素を含む)
-#### update	                        PATCH	/cart_products/:id	カート内商品データ更新
-#### destroy	                        DELETE	/cart_products/:id	カート内商品データ削除(一商品)
-#### destroy_all	                    DELETE	/cart_products/destroy_all	カート内商品データ削除(全て)
-#### create	                        POST	/cart_products	カート内商品データ追加
-#### public/orders	            new  	GET	/orders/new	注文情報入力画面(支払方法・配送先の選択)
-#### confirm	                        POST	/orders/confirm	注文情報確認画面
-#### complete	                      GET	/orders/complete	注文完了画面
-#### create	                        POST	/orders	注文確定処理
-#### index	                          GET	/orders	注文履歴画面
-#### show	                          GET	/orders/:id	注文履歴詳細画面
-#### public/delivery addresses	index	GET	/delivery_addresses	配送先登録/一覧画面
-#### edit	                          GET	/delivery_addresses/:id/edit	配送先編集画面
-#### create	                        POST	/delivery_addresses	配送先の登録
-#### update	                        PATCH	/delivery_addresses/:id	配送先の更新
-#### destroy	                        DELETE	/delivery_addresses/:id	配送先の削除
+||about|GET|/about|アバウトページ|
+|public/products|index|GET|/products|商品一覧|
+||show|GET|/products/:id|商品詳細|
+|public/registrations|new|GET|/customers/sign_up|顧客の会員登録画面|
+||create|POST|/customers|顧客の会員登録|
+|public/sessions|new|GET|/customers/sign_in|顧客ログイン画面|
+||create|POST|/customers/sign_in|顧客ログイン|
+||destroy|DELETE|/customers/sign_out|顧客ログアウト|
+|public/customers	        show	GET	/customers	顧客のマイページ
+||edit	                          GET	/customers/information/edit	顧客の登録情報編集画面
+||update	                        PATCH	/customers/infomation	顧客の登録情報更新
+||unsubscribe	                    GET	/customers/unsubscribe	顧客の退会確認画面
+||withdraw	                      PATCH	/customers/withdraw	顧客の退会処理(ステータスの更新)
+|public/cart_products    	index	GET	/cart_products	カート内商品一覧画面(数量変更・カート削除の要素を含む)
+||update	                        PATCH	/cart_products/:id	カート内商品データ更新
+||destroy	                        DELETE	/cart_products/:id	カート内商品データ削除(一商品)
+||destroy_all	                    DELETE	/cart_products/destroy_all	カート内商品データ削除(全て)
+||create	                        POST	/cart_products	カート内商品データ追加
+|public/orders	            new  	GET	/orders/new	注文情報入力画面(支払方法・配送先の選択)
+||confirm	                        POST	/orders/confirm	注文情報確認画面
+||complete	                      GET	/orders/complete	注文完了画面
+||create	                        POST	/orders	注文確定処理
+||index	                          GET	/orders	注文履歴画面
+||show	                          GET	/orders/:id	注文履歴詳細画面
+|public/delivery addresses	index	GET	/delivery_addresses	配送先登録/一覧画面
+||edit	                          GET	/delivery_addresses/:id/edit	配送先編集画面
+||create	                        POST	/delivery_addresses	配送先の登録
+||update	                        PATCH	/delivery_addresses/:id	配送先の更新
+||destroy	                        DELETE	/delivery_addresses/:id	配送先の削除
 
 ## admin
 #### admin/sessions	       new  	GET	/admin/sign_in	管理者ログイン画面
