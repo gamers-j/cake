@@ -3,9 +3,15 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @cart_products = current_customer.cart_products
+    #カート内商品が空ならカート一覧画面に戻す（nilは×）
+    if @cart_products.blank?
+      redirect_to cart_products_path
+    end
   end
 
   def index
+    #注文履歴一覧アクション
     @orders = Order.where(customer_id: current_customer.id)
     @orders = Order.page(params[:page])
   end
@@ -48,7 +54,7 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
     elsif params[:order][:address_number] == "2"
-      if DeliveryAddress.exists?(id: params[:order][:registered])
+      if DeliveryAddress.exists?(id: params[:order][:registered])#idで配送先住所を探して
         @order.name = DeliveryAddress.find(params[:order][:registered]).name
         @order.postal_code = DeliveryAddress.find(params[:order][:registered]).postal_code
         @order.address = DeliveryAddress.find(params[:order][:registered]).address
@@ -77,7 +83,7 @@ class Public::OrdersController < ApplicationController
   def address_params
     params.require(:order).permit(:name, :postal_code, :address)
   end
-  
+
   def ensure_correct_customer
     @order = current_customer
     redirect_to products_path unless @order = current_customer
