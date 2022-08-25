@@ -8,9 +8,9 @@
 ![ER図](https://github.com/gamers-j/cake/blob/develop/ER%E5%9B%B3.png)
 
 # アプリケーション詳細設計	
-## public
 |URL|アクション|メソッド|目的|
 |---|---|---|---|
+## public
 #### |public/homes|top|GET|トップページ|
 #### about	                         GET	/about	アバウトページ
 #### public/products	          index	GET	/products	商品一覧
