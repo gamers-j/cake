@@ -11,7 +11,7 @@
 ## public
 |コントローラー|アクション|メソッド|URL|目的|
 |---|---|---|---|---|
-|/2.public/homes|top|GET|/|トップページ|
+|/2. public/homes|top|GET|/|トップページ|
 ||about|GET|/about|アバウトページ|
 |public/products|index|GET|/products|商品一覧|
 ||show|GET|/products/:id|商品詳細|
