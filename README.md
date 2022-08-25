@@ -43,6 +43,8 @@
 ||destroy|DELETE|/delivery_addresses/:id|配送先の削除|
 
 ## admin
+|コントローラー|アクション|メソッド|URL|目的|
+|---|---|---|---|---|
 |admin/sessions|new|GET|/admin/sign_in|管理者ログイン画面|
 ||create|POST|/admin/sign_in|管理者ログイン|
 ||destroy|DELETE|/admin/sign_out|管理者ログアウト|
