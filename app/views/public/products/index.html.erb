@@ -5,26 +5,30 @@
     </div>
     
 <div class="col-md-10">
-  <h2><% if @type == nil %>
+  <h3><% if @type == nil %>
     <strong>商品一覧</strong>(全<%= @active_products.count %>件)
-<% else %>
-  <strong><%= @type.name %>一覧</strong>(全<%= @active_products.count %>件)
-<% end %></h2>
+      <% else %>
+    <strong><%= @type.name %>一覧</strong>(全<%= @active_products.count %>件)
+      <% end %>
+  </h3>
 
 <div class="row">
-<% @products.each do |product| %>
+  <% @products.each do |product| %>
 <div class="col-md-3">
   <%= link_to product_path(product.id) do %>
   <%= image_tag product.get_profile_image(100,100) %><br>
   <%= product.name %><br>
   ¥<%= product.nontaxed_price.to_s(:delimited) %>
-<% end %>
+  <% end %>
 </div>
-<% end %>
+  <% end %>
 </div>
-
-<div class="mt-5"><%= paginate @products %></div>
-
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <%= paginate @products %>
     </div>
+  </div>  
+
+</div>
   </div>
 </div>
