@@ -1,4 +1,6 @@
 class Public::CartProductsController < ApplicationController
+  before_action :ensure_correct_customer, only: [:create, :index, :edit]
+
   def index
     @cart = CartProduct.where(customer_id: current_customer.id)
     @total = 0
@@ -35,4 +37,9 @@ class Public::CartProductsController < ApplicationController
     params.require(:cart_product).permit(:product_id, :quantity)
   end
 
+
+  def ensure_correct_customer
+    @cart_product = current_customer
+    redirect_to products_path unless @cart_product = current_customer
+  end
 end

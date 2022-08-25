@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :ensure_correct_customer, only: [:new, :create, :index, :show, :edit, :complete, :confirm]
+
   def new
     @order = Order.new
   end
@@ -73,5 +75,10 @@ class Public::OrdersController < ApplicationController
 
   def address_params
     params.require(:order).permit(:name, :postal_code, :address)
+  end
+  
+  def ensure_correct_customer
+    @order = current_customer
+    redirect_to products_path unless @order = current_customer
   end
 end
