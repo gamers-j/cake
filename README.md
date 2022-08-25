@@ -9,6 +9,8 @@
 
 # アプリケーション詳細設計	
 ## public
+|URL|アクション|メソッド|目的|
+|---|---|---|---|
 #### public/homes	            top 	GET	/	トップページ
 #### about	                         GET	/about	アバウトページ
 #### public/products	          index	GET	/products	商品一覧
