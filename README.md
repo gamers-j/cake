@@ -11,7 +11,7 @@
 ## public
 |コントローラー|アクション|メソッド|URL|目的|
 |---|---|---|---|---|
-|_=/2. public/homes|top|GET|/|トップページ|
+|public/homes|top|GET|/|トップページ|
 ||about|GET|/about|アバウトページ|
 |public/products|index|GET|/products|商品一覧|
 ||show|GET|/products/:id|商品詳細|
@@ -61,14 +61,14 @@
 ||show|GET|/admin/customers/:id|顧客詳細画面|
 ||edit|GET|/admin/customers/:id/edit|顧客編集画面|
 ||update|PATCH|/admin/customers/:id|顧客情報の更新|
-|admin/orders|show|GET|/admin/orders/:id|注文詳細画面(ステータス編集を兼ねる)
-#### admin/orders	         update	PATCH	/admin/orders/:id	注文ステータス・着手状況の更新
-#### admin/product_orders   update	PATCH	/admin/product_orders/:id	製作ステータスの更新 
+|admin/orders|show|GET|/admin/orders/:id|注文詳細画面(ステータス編集を兼ねる)|
+|admin/orders|update|PATCH|/admin/orders/:id|注文ステータス・着手状況の更新|
+|admin/product_orders|update|PATCH|/admin/product_orders/:id|製作ステータスの更新| 
 
 # アプリケーションURL																									
 #### ながのcake(URL)																									
 
 # 開発環境																									
-# "ruby 3.1.2
+## ruby 3.1.2
 
-# Rails 6.1.6.1"																									
+## Rails 6.1.6.1																									
