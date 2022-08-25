@@ -4,7 +4,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-     @orders = Order.where(customer_id: current_customer.id)
+    @orders = Order.where(customer_id: current_customer.id)
   end
 
   def show
@@ -45,7 +45,7 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
     elsif params[:order][:address_number] == "2"
-      if DeliveryAddress.exists?(name: params[:order][:registered])
+      if DeliveryAddress.exists?(id: params[:order][:registered])
         @order.name = DeliveryAddress.find(params[:order][:registered]).name
         @order.postal_code = DeliveryAddress.find(params[:order][:registered]).postal_code
         @order.address = DeliveryAddress.find(params[:order][:registered]).address
@@ -53,7 +53,7 @@ class Public::OrdersController < ApplicationController
         render :new
       end
     elsif params[:order][:address_number] == "3"
-      address_new = current_customer.addresses.new(address_params)
+      address_new = current_customer.delivery_addresses.new(address_params)
       if address_new.save
       else
         render :new
