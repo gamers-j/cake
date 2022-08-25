@@ -11,7 +11,7 @@
 |URL|アクション|メソッド|目的|
 |---|---|---|---|
 ## public
-#### |public/homes|top|GET|トップページ|
+|public/homes|top|GET|トップページ|
 #### about	                         GET	/about	アバウトページ
 #### public/products	          index	GET	/products	商品一覧
 #### show	                          GET	/products/:id	商品詳細
