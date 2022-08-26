@@ -6,8 +6,8 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
-     @order = Order.find(params[:id])
-     product_orders = @order.product_orders
+    @order = Order.find(params[:id])
+    product_orders = @order.product_orders
     if @order.update(order_params)
       if @order.status == "入金待ち"
         product_orders.update_all(making_status: "着手不可")
