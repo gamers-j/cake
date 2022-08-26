@@ -8,8 +8,17 @@ class Public::CartProductsController < ApplicationController
 
   def create
     @cart_product = CartProduct.new(cart_params)
-    @cart_product.customer_id = current_customer.id
-    @cart_product.save
+    #カート内商品 = ログイン会員がカートに入れた商品（find_byでカート内の商品idを探して）
+    cart_products = current_customer.cart_products.find_by(product_id: params[:cart_product][:product_id])
+    #もしカート内商品が空ならそのまま保存
+    if cart_products == nil
+      @cart_product.customer_id = current_customer.id
+      @cart_product.save
+    else
+    #空以外はカート内商品個数に足す
+      cart_products.quantity += @cart_product.quantity
+      cart_products.save
+    end
     redirect_to cart_products_path
   end
 
@@ -28,7 +37,7 @@ class Public::CartProductsController < ApplicationController
   def destroy_all
     cart_product = CartProduct.where(customer_id: current_customer.id)
     cart_product.destroy_all
-    redirect_to products_path
+    redirect_to cart_products_path
   end
 
   private

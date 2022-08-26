@@ -1,63 +1,79 @@
-<h5>注文履歴詳細</h5>
-
-<h6>注文情報</h6>
-<table class="table-bordered">
-  <tr>
-    <td>注文日</td>
-    <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
-  </tr>
-  <tr>
-    <td>配送先</td>
-    <td>
-      <%= @order.postal_code %><br>
-      <%= @order.address %>
-    </td>
-  </tr>
-  <tr>
-    <td>支払方法</td>
-    <td><%= @order.payment_method_i18n %></td>
-  </tr>
-  <tr>
-    <td>ステータス</td>
-    <td><%= @order.status_i18n %></td>
-  </tr>
-</table>
-
-<h6>請求情報</h6>
-<table class="table-bordered">
-  <tr>
-    <td>商品合計</td>
-    <td>¥<%= @order.subtotal %></td>
-  </tr>
-  <tr>
-    <td>配送料</td>
-    <td>¥800</td>
-  </tr>
-  <tr>
-    <th>ご請求額</th>
-    <td>¥<%= @order.total_amount.to_s(:delimited) %></td>
-  </tr>
-</table>
-
-<h6>注文内容</h6>
-<table class="table-bordered">
-  <thead>
+<div class="container py-3">
+ <h4><span class="bg-dark text-light px-3">注文履歴詳細</span></h4>
+ <div class="row pt-2">
+   <div class="col-md-8">
+     <strong></strong>
+     <p></p>
+     <table class="table table-hover">
+      <tr>
+       <td>注文日</td>
+       <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+       <td>配送先</td>
+       <td>
+        <%= @order.postal_code %><br>
+        <%= @order.address %>
+       </td>
+      </tr>
+      <tr>
+       <td>支払方法</td>
+       <td><%= @order.payment_method_i18n %></td>
+      </tr>
+      <tr>
+       <td>ステータス</td>
+       <td><%= @order.status_i18n %></td>
+      </tr>
+     </table>
+   </div>
+   <div class="col-md-3">
+     <strong>請求情報</strong>
+     <p></p>
+     <table class="table table-hover">
+      <tr>
+       <td>商品合計</td>
+       <td>¥<%= @order.subtotal %></td>
+      </tr>
+      <tr>
+       <td>配送料</td>
+       <td>¥800</td>
+      </tr>
+      <tr>
+       <th>ご請求額</th>
+       <th>¥<%= @order.total_amounts.to_s(:delimited) %></th>
+      </tr>
+     </table>
+   </div>
+ </div>
+ <div class="row pt-3">
+  <div class="col-md-8">
+   <strong>注文内容</strong>
+   <p></p>
+   <table class="table table-hover">
+   <thead>
     <tr>
       <td>商品</td>
       <td>単価</td>
       <td>個数</td>
       <td>小計</td>
     </tr>
-  </thead>
-  <tbody>
+   </thead>
+   <tbody>
     <% @product.each do |product| %>
     <tr>
       <td><%= product.product.name %></td>
-      <td><%= product.taxed_price %></td>
+      <td>¥<%= product.taxed_price %></td>
       <td><%= product.quantity %></td>
-      <td><%= product.subtotal %></td>
+      <td>¥<%= product.subtotal %></td>
     </tr>
     <% end %>
-  </tbody>
-</table>
+   </tbody>
+   </table>
+  </div>
+ </div>
+</div>
+
+
+
+
 
