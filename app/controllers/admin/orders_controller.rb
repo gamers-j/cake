@@ -17,7 +17,7 @@ class Admin::OrdersController < ApplicationController
       end
     end
     redirect_to admin_order_path(@order.id)
-    end
+  end
 
   def order_params
     params.require(:order).permit(:status)
