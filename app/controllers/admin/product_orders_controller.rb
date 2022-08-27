@@ -9,7 +9,7 @@ class Admin::ProductOrdersController < ApplicationController
     elsif ProductOrder.where(order_id: @product_order.order_id).count == ProductOrder.where(order_id: @product_order.order_id, making_status: "production_completed").count
       @product_order.order.update(status: 3)
     end
-      redirect_to admin_order_path(@product_order.order)
+      redirect_to admin_order_path(@product_order.order_id)
   end
 
   def product_order_params
