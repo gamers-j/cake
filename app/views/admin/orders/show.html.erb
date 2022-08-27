@@ -57,7 +57,7 @@
           <td><%= product_order.subtotal %></td>
           <td>
           <%# 制作ステータス（ProductOrderの中のカラムmaking_status）の更新%>
-          <%= form_with model: product_order, url: admin_product_order_path do |f| %>
+          <%= form_with model: product_order, url: admin_product_order_path(product_order.id) do |f| %>
           <%= f.select :making_status, ProductOrder.making_statuses_i18n.invert,include_blank: "--選択して下さい--" %>
           <%= f.submit "更新",class: 'btn btn-success ml-3' %>
           <% end %>
