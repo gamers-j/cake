@@ -1,29 +1,47 @@
 <div class='container'>
-  <div class='row'>
-  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-<table>
-  <h2>商品一覧</h2>
-  <thead>
-    <tr>
-      <th colspan="3">商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th align="center">ステータス</th>
-    </tr>
-　</thead>
-　<tbody>
-　  <% @products.each do |product| %>
-　  <tr>
-　    <td><%= product.id %></td>
-　    <td><%= link_to product.name %></td>
-　    <td><%= product.introduction %></td>
-　    <td><%= product.nontaxed_price %></td>
-　    <td><%= product.is_active %></td>
-　  </tr>
-　  <% end %>
-　</tbody>
-</table>
-</div>
-</div>
+  <div class='row pt-5'>
+    <div class="col-lg-3">
+      <h5 class="bg-dark text-light text-center">商品一覧</h5>
+      </div>
+      <div class="col-lg-3 text-right ml-auto">
+      <%= link_to '新規登録', new_admin_product_path,class: "btn btn-danger" %>
+    </div>
+    <div class="col-lg-3">
+    </div>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th>ステータス</th>
+      </tr>
+  　</thead>
+  　<tbody>
+  　  <% @products.each do |product| %>
+　    <tr>
+　      <td><%= product.id %></td>
+　      <td><%= link_to product.name,admin_product_path(product.id) %></td>
+　      <td><%= product.nontaxed_price %></td>
+　      <td><%= product.type.name %></td>
+　      <td>
+          <% if product.is_active == false %>
+            <span class="text-success">販売中</span>
+          <% else %>
+            <span class="text-secondary">販売停止中</span>
+          <% end %>
+        </td>
+　    </tr>
+　    <% end %>
+
+    </tbody>
+  </table>
+  </div>
+
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+  <%= paginate @products %>
+  </div>
+  </div>
 </div>
